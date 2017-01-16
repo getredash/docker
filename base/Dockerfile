@@ -1,8 +1,6 @@
 FROM ubuntu:xenial
 
 EXPOSE 5000
-# Webpack dev server
-EXPOSE 8080
 
 RUN useradd --system --comment " " --create-home redash
 
