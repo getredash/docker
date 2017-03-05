@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 
 EXPOSE 5000
 
-RUN useradd --system --comment " " --create-home redash
+RUN useradd --create-home redash
 
 # Ubuntu packages
 RUN apt-get update && apt-get install -y curl && curl https://deb.nodesource.com/setup_6.x | bash - && \
