@@ -1,4 +1,4 @@
-FROM python:2
+FROM python:2-slim
 
 EXPOSE 5000
 
@@ -6,7 +6,7 @@ RUN useradd --create-home redash
 
 # Ubuntu packages
 RUN apt-get update && \
-  apt-get install -y curl && \
+  apt-get install -y curl gnupg && \
   curl https://deb.nodesource.com/setup_6.x | bash - && \
   apt-get install -y \
     build-essential \
