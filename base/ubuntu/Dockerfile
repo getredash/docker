@@ -5,9 +5,8 @@ EXPOSE 5000
 RUN useradd --create-home redash
 
 # Ubuntu packages
-RUN apt-get update && apt-get install -y curl && curl https://deb.nodesource.com/setup_6.x | bash - && \
+RUN apt-get update && apt-get install -y curl \
   apt-get install -y python-pip python-dev build-essential pwgen libffi-dev sudo git-core wget unzip \
-  nodejs \
   # Postgres client
   libpq-dev \
   # for SAML
