@@ -15,7 +15,6 @@ RUN apt-get update && \
     sudo \
     git-core \
     wget \
-    nodejs \
     # Postgres client
     libpq-dev \
     # for SAML
