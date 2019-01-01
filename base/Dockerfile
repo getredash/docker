@@ -6,9 +6,9 @@ RUN useradd --create-home redash
 
 # Ubuntu packages
 RUN apt-get update && \
-  apt-get install -y curl gnupg && \
-  curl https://deb.nodesource.com/setup_6.x | bash - && \
   apt-get install -y \
+    curl \
+    gnupg \
     build-essential \
     pwgen \
     libffi-dev \
