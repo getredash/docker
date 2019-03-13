@@ -1,4 +1,4 @@
-FROM redash/base:xenial
+FROM redash/base:latest
 
 # Oracle support
 RUN mkdir -p /opt/oracle
