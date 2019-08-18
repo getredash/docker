@@ -1,5 +1,11 @@
 FROM redash/base:debian
 
+RUN apt-get update && \
+  apt-get install -y \
+    unzip && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
 # Oracle support
 RUN mkdir -p /opt/oracle
 ADD ./instantclient/ .
