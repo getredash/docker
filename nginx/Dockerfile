@@ -1,3 +1,4 @@
+# This image should be built from root of repo
 FROM nginx:stable
 
-ADD redash.conf /etc/nginx/conf.d/default.conf
+ADD nginx/redash.conf /etc/nginx/conf.d/default.conf
