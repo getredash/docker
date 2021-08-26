@@ -1,3 +1,3 @@
-FROM nginx:1.9.10
+FROM nginx:stable
 
 ADD redash.conf /etc/nginx/conf.d/default.conf
