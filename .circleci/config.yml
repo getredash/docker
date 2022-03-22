@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  docker: circleci/docker@1.5.0
+  docker: circleci/docker@2.0.3
   slack: circleci/slack@3.4.2
 
 jobs:
@@ -10,6 +10,20 @@ jobs:
       - checkout
       - docker/dockerlint:
           dockerfile: nginx/Dockerfile
+
+  build:
+    executor: docker/machine
+    steps:
+      - checkout
+      - docker/check:
+          docker-username: quay_username
+          docker-password: quay_userpass
+          registry: quay.io
+      - docker/build:
+          image: 15five/redash-nginx
+          tag: latest
+          registry: quay.io
+          path: nginx
 
   build-and-push-cicd:
     executor: docker/machine
@@ -36,6 +50,10 @@ jobs:
           channel: devops-releases
 
 workflows:
+  test-pr:
+    jobs:
+      - lint-dockerfiles
+      - build
   nginx:
     jobs:
       - lint-dockerfiles
