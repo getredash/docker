@@ -52,8 +52,11 @@ jobs:
 workflows:
   test-pr:
     jobs:
-      - lint-dockerfiles
-      - build
+      - build:
+          filters:
+            branches:
+              ignore:
+                - main
   nginx:
     jobs:
       - lint-dockerfiles
